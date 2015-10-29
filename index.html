@@ -8,6 +8,14 @@
 	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
   		var socket = io();
+        
+        socket.on('user joined', function() {
+                  $('body').append('User connected');
+        });
+        
+        socket.on('user left', function() {
+                  $('body').append('User left');
+        });
  	</script>
     </body>
 </html>

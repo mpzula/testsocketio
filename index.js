@@ -8,6 +8,12 @@ app.get('/', function( req, res) {
 
 io.on('connection', function(socket) {
       console.log('user connected');
+      
+      io.emit('user joined');
+      
+      socket.on('disconnect', function() {
+            io.emit('user left');
+      });
 });
 
 http.listen(3000, function() {
